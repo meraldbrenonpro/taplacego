@@ -8,13 +8,15 @@ const testimonials = [
     role: "Conductrice à Toulouse",
     quote:
       "Je ne tourne plus 20 minutes pour me garer. En 2 clics, j'ai ma place réservée près du Capitole.",
+    avatarBg: "bg-copper",
   },
   {
     initials: "T.R.",
     name: "Thomas R.",
-    role: "Propriétaire, quartier Saint-Cyprien",
+    role: "Propriétaire, Saint-Cyprien",
     quote:
-      "Ma place de parking restait vide la journée. Maintenant elle me rapporte 120€ par mois sans effort.",
+      "Ma place restait vide la journée. Maintenant elle me rapporte 120€ par mois sans aucun effort.",
+    avatarBg: "bg-navy",
   },
   {
     initials: "L.B.",
@@ -22,23 +24,24 @@ const testimonials = [
     role: "Étudiante à Toulouse",
     quote:
       "Enfin une alternative abordable aux parkings hors de prix du centre-ville. L'app est super intuitive.",
+    avatarBg: "bg-copper",
   },
 ];
 
 const Testimonials = () => {
   return (
-    <section className="py-24 bg-background">
+    <section className="py-20 bg-background">
       <div className="max-w-7xl mx-auto px-6">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-4xl font-bold text-navy text-center mb-16"
+          className="text-4xl font-extrabold text-navy text-center mb-16"
         >
           Ils nous font déjà confiance
         </motion.h2>
 
-        <div className="grid md:grid-cols-3 gap-8 mb-12">
+        <div className="grid md:grid-cols-3 gap-8 mb-12 md:overflow-visible overflow-x-auto">
           {testimonials.map((t, i) => (
             <motion.div
               key={t.name}
@@ -46,10 +49,10 @@ const Testimonials = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.15 }}
-              className="bg-card p-8 rounded-2xl shadow-md flex flex-col"
+              className="bg-card p-6 rounded-2xl border border-card-border flex flex-col hover:-translate-y-1 hover:shadow-[0_8px_24px_rgba(27,42,74,0.08)] transition-all duration-300 min-w-[280px]"
             >
               <div className="flex items-center gap-4 mb-4">
-                <div className="w-12 h-12 rounded-full bg-lavender flex items-center justify-center text-navy font-bold text-sm">
+                <div className={`w-12 h-12 rounded-full ${t.avatarBg} flex items-center justify-center text-primary-foreground font-bold text-sm`}>
                   {t.initials}
                 </div>
                 <div>
@@ -57,19 +60,19 @@ const Testimonials = () => {
                   <p className="text-sm text-anthracite">{t.role}</p>
                 </div>
               </div>
-              <p className="text-foreground leading-relaxed flex-1 mb-4">
-                "{t.quote}"
-              </p>
-              <div className="flex gap-0.5">
+              <div className="flex gap-0.5 mb-4">
                 {Array.from({ length: 5 }).map((_, j) => (
                   <Star
                     key={j}
                     size={16}
-                    className="text-terracotta"
-                    fill="hsl(var(--terracotta))"
+                    className="text-copper"
+                    fill="hsl(var(--copper))"
                   />
                 ))}
               </div>
+              <p className="text-foreground leading-relaxed flex-1 italic">
+                "{t.quote}"
+              </p>
             </motion.div>
           ))}
         </div>
@@ -80,8 +83,8 @@ const Testimonials = () => {
           viewport={{ once: true }}
           className="text-center"
         >
-          <span className="inline-flex items-center gap-2 bg-emerald/10 text-emerald font-semibold px-5 py-2.5 rounded-full text-sm">
-            <span className="w-2 h-2 rounded-full bg-emerald animate-pulse" />
+          <span className="inline-flex items-center gap-2 bg-copper/10 text-copper font-semibold px-5 py-2.5 rounded-full text-sm">
+            <span className="w-2 h-2 rounded-full bg-copper animate-pulse" />
             Déjà +500 inscrits sur la liste d'attente
           </span>
         </motion.div>

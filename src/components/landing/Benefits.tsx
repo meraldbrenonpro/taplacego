@@ -28,11 +28,15 @@ const checkItems = ["Paiements sécurisés", "Support 24/7", "Assurance incluse"
 
 const Benefits = () => {
   return (
-    <section id="benefits" className="py-24 bg-light-gray">
+    <section id="benefits" className="py-20 bg-light-gray">
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
-          <div>
-            <h2 className="text-4xl font-bold text-navy mb-6 leading-tight">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-4xl font-extrabold text-navy mb-6 leading-tight">
               Pourquoi choisir <br />
               TaPlaceGo ?
             </h2>
@@ -46,19 +50,22 @@ const Benefits = () => {
                   key={item}
                   className="flex items-center gap-3 text-navy font-semibold"
                 >
-                  <CheckCircle2 className="text-emerald" /> {item}
+                  <CheckCircle2 className="text-copper" /> {item}
                 </div>
               ))}
             </div>
-          </div>
+          </motion.div>
           <div className="grid sm:grid-cols-2 gap-6">
             {benefits.map((b, i) => (
               <motion.div
                 key={i}
-                whileHover={{ y: -5 }}
-                className="bg-card p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+                className="bg-card p-8 rounded-2xl shadow-sm border border-card-border hover:-translate-y-1 hover:shadow-[0_8px_24px_rgba(27,42,74,0.08)] transition-all duration-300 cursor-default"
               >
-                <div className="text-terracotta mb-4">{b.icon}</div>
+                <div className="text-copper mb-4">{b.icon}</div>
                 <h4 className="text-lg font-bold text-navy mb-2">{b.title}</h4>
                 <p className="text-sm text-anthracite leading-relaxed">
                   {b.desc}

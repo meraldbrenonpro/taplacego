@@ -11,7 +11,7 @@ const ownerBenefits = [
 const driverBenefits = [
   "Trouvez une place garantie en quelques secondes",
   "Jusqu'à 50% moins cher qu'un parking classique",
-  "Guidage GPS jusqu'à votre place",
+  "Guidage GPS jusqu'à votre place réservée",
 ];
 
 const DualTarget = () => {
@@ -20,27 +20,27 @@ const DualTarget = () => {
   };
 
   return (
-    <section className="py-24 bg-background">
+    <section className="py-20 bg-background">
       <div className="max-w-7xl mx-auto px-6">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-4xl font-bold text-navy text-center mb-16"
+          className="text-4xl font-extrabold text-navy text-center mb-16"
         >
           Une solution pour chacun
         </motion.h2>
         <div className="grid md:grid-cols-2 gap-8">
           {/* Propriétaires */}
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="bg-card p-10 rounded-2xl shadow-md flex flex-col"
+            transition={{ delay: 0.1 }}
+            className="bg-card p-8 rounded-2xl border border-card-border flex flex-col hover:-translate-y-1 hover:shadow-[0_8px_24px_rgba(27,42,74,0.08)] transition-all duration-300"
           >
-            <div className="text-emerald mb-4">
-              <Home size={40} />
+            <div className="text-copper mb-4">
+              <Home size={32} />
             </div>
             <h3 className="text-2xl font-bold text-navy mb-2">
               Vous avez une place libre ?
@@ -51,7 +51,7 @@ const DualTarget = () => {
             <ul className="space-y-3 mb-8 flex-1">
               {ownerBenefits.map((b) => (
                 <li key={b} className="flex items-start gap-3 text-foreground">
-                  <Check className="text-emerald mt-0.5 shrink-0" size={20} />
+                  <Check className="text-copper mt-0.5 shrink-0" size={20} />
                   <span>{b}</span>
                 </li>
               ))}
@@ -59,23 +59,23 @@ const DualTarget = () => {
             <Button
               variant="outline"
               size="lg"
-              className="w-full rounded-xl border-navy text-navy hover:bg-navy hover:text-primary-foreground"
+              className="w-full rounded-full border-navy text-navy hover:bg-navy hover:text-primary-foreground transition-all hover:-translate-y-0.5"
               onClick={scrollToCTA}
             >
-              Proposer ma place
+              Proposer ma place →
             </Button>
           </motion.div>
 
           {/* Conducteurs */}
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="bg-card p-10 rounded-2xl shadow-md flex flex-col"
+            transition={{ delay: 0.2 }}
+            className="bg-card p-8 rounded-2xl border border-card-border flex flex-col hover:-translate-y-1 hover:shadow-[0_8px_24px_rgba(27,42,74,0.08)] transition-all duration-300"
           >
-            <div className="text-emerald mb-4">
-              <MapPin size={40} />
+            <div className="text-copper mb-4">
+              <MapPin size={32} />
             </div>
             <h3 className="text-2xl font-bold text-navy mb-2">
               Vous cherchez où vous garer ?
@@ -86,17 +86,17 @@ const DualTarget = () => {
             <ul className="space-y-3 mb-8 flex-1">
               {driverBenefits.map((b) => (
                 <li key={b} className="flex items-start gap-3 text-foreground">
-                  <Check className="text-emerald mt-0.5 shrink-0" size={20} />
+                  <Check className="text-copper mt-0.5 shrink-0" size={20} />
                   <span>{b}</span>
                 </li>
               ))}
             </ul>
             <Button
               size="lg"
-              className="w-full rounded-xl bg-emerald text-accent-foreground hover:bg-emerald/90"
+              className="w-full rounded-full bg-copper text-primary-foreground hover:brightness-90 transition-all hover:-translate-y-0.5"
               onClick={scrollToCTA}
             >
-              Trouver une place
+              Trouver une place →
             </Button>
           </motion.div>
         </div>
