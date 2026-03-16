@@ -1,33 +1,32 @@
 import { motion } from "framer-motion";
-import { MapPin, Star, Search } from "lucide-react";
+import { MapPin, Star, Search, Locate, Zap, Lock, Radio } from "lucide-react";
 
 const badges = [
-  { label: "Géolocalisation intégrée", side: "left", top: "15%" },
-  { label: "Réservation instantanée", side: "left", top: "55%" },
-  { label: "Suivi en temps réel", side: "right", top: "20%" },
-  { label: "Paiement sécurisé", side: "right", top: "60%" },
+  { label: "Géolocalisation intégrée", icon: <Locate size={14} />, side: "left", top: "15%" },
+  { label: "Réservation instantanée", icon: <Zap size={14} />, side: "left", top: "55%" },
+  { label: "Paiement sécurisé", icon: <Lock size={14} />, side: "right", top: "20%" },
+  { label: "Suivi en temps réel", icon: <Radio size={14} />, side: "right", top: "60%" },
 ];
 
 const results = [
-  { name: "Capitole", price: "2,50€/h", distance: "150m", rating: 4.8 },
-  { name: "Saint-Cyprien", price: "1,80€/h", distance: "400m", rating: 4.5 },
-  { name: "Carmes", price: "2,00€/h", distance: "300m", rating: 4.7 },
+  { name: "Capitole, Toulouse", price: "2€/h", distance: "350m", rating: 4.9 },
+  { name: "Saint-Cyprien", price: "1,50€/h", distance: "800m", rating: 4.7 },
 ];
 
 const ProductPreview = () => {
   return (
-    <section className="py-24 bg-light-gray">
+    <section className="py-20 bg-card">
       <div className="max-w-7xl mx-auto px-6">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-4xl font-bold text-navy text-center mb-16"
+          className="text-4xl font-extrabold text-navy text-center mb-16"
         >
           Un aperçu de l'expérience
         </motion.h2>
 
-        <div className="relative flex items-center justify-center min-h-[600px]">
+        <div className="relative flex items-center justify-center min-h-[550px]">
           {/* Floating badges - left */}
           <div className="hidden lg:block absolute left-0 top-0 bottom-0 w-1/4">
             {badges
@@ -42,7 +41,8 @@ const ProductPreview = () => {
                   className="absolute right-0"
                   style={{ top: b.top }}
                 >
-                  <div className="bg-card px-5 py-3 rounded-xl shadow-md text-sm font-semibold text-navy whitespace-nowrap">
+                  <div className="bg-card border border-card-border px-4 py-2.5 rounded-full shadow-sm text-sm font-semibold text-navy whitespace-nowrap flex items-center gap-2">
+                    <span className="text-copper">{b.icon}</span>
                     {b.label}
                   </div>
                 </motion.div>
@@ -65,18 +65,29 @@ const ProductPreview = () => {
                   <span>●●●</span>
                 </div>
 
+                {/* App header */}
+                <div className="px-4 pt-3 pb-1 flex items-center justify-between">
+                  <div className="flex items-center gap-1.5">
+                    <MapPin className="text-copper" size={14} />
+                    <span className="text-xs font-bold text-navy">
+                      <span>Ta</span><span className="text-copper">Place</span><span>Go</span>
+                    </span>
+                  </div>
+                  <span className="text-sm text-navy">Bonjour 👋</span>
+                </div>
+
                 {/* Search bar */}
                 <div className="px-4 py-3">
-                  <div className="flex items-center gap-2 bg-light-gray rounded-xl px-3 py-2.5">
+                  <div className="flex items-center gap-2 bg-light-gray rounded-full px-3 py-2.5">
                     <Search size={16} className="text-anthracite" />
                     <span className="text-sm text-anthracite">
-                      Rechercher un lieu...
+                      Où allez-vous ?
                     </span>
                   </div>
                 </div>
 
                 {/* Mini map */}
-                <div className="mx-4 h-32 bg-lavender rounded-xl relative overflow-hidden mb-3">
+                <div className="mx-4 h-28 bg-light-gray rounded-xl relative overflow-hidden mb-3">
                   <div className="absolute inset-0 opacity-30">
                     <svg viewBox="0 0 200 100" className="w-full h-full">
                       <path d="M0,50 Q50,20 100,50 T200,50" fill="none" stroke="hsl(var(--navy))" strokeWidth="1.5" />
@@ -86,8 +97,14 @@ const ProductPreview = () => {
                       <rect x="130" y="25" width="18" height="18" rx="2" fill="hsl(var(--navy))" opacity="0.15" />
                     </svg>
                   </div>
-                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-                    <MapPin className="text-emerald" size={28} fill="hsl(var(--emerald))" />
+                  <div className="absolute top-1/3 left-1/3">
+                    <MapPin className="text-copper" size={20} fill="hsl(var(--copper))" />
+                  </div>
+                  <div className="absolute top-1/2 left-2/3">
+                    <MapPin className="text-copper" size={20} fill="hsl(var(--copper))" />
+                  </div>
+                  <div className="absolute top-1/4 left-1/2">
+                    <MapPin className="text-copper" size={16} fill="hsl(var(--copper))" />
                   </div>
                 </div>
 
@@ -103,14 +120,14 @@ const ProductPreview = () => {
                         <p className="text-xs text-anthracite">{r.distance}</p>
                       </div>
                       <div className="text-right">
-                        <p className="text-sm font-bold text-emerald">
+                        <p className="text-sm font-bold text-copper">
                           {r.price}
                         </p>
                         <div className="flex items-center gap-0.5">
                           <Star
                             size={12}
-                            className="text-terracotta"
-                            fill="hsl(var(--terracotta))"
+                            className="text-copper"
+                            fill="hsl(var(--copper))"
                           />
                           <span className="text-xs text-anthracite">
                             {r.rating}
@@ -138,7 +155,8 @@ const ProductPreview = () => {
                   className="absolute left-0"
                   style={{ top: b.top }}
                 >
-                  <div className="bg-card px-5 py-3 rounded-xl shadow-md text-sm font-semibold text-navy whitespace-nowrap">
+                  <div className="bg-card border border-card-border px-4 py-2.5 rounded-full shadow-sm text-sm font-semibold text-navy whitespace-nowrap flex items-center gap-2">
+                    <span className="text-copper">{b.icon}</span>
                     {b.label}
                   </div>
                 </motion.div>
@@ -150,8 +168,9 @@ const ProductPreview = () => {
             {badges.map((b) => (
               <span
                 key={b.label}
-                className="bg-card px-3 py-1.5 rounded-full shadow text-xs font-semibold text-navy"
+                className="bg-card border border-card-border px-3 py-1.5 rounded-full shadow-sm text-xs font-semibold text-navy flex items-center gap-1.5"
               >
+                <span className="text-copper">{b.icon}</span>
                 {b.label}
               </span>
             ))}

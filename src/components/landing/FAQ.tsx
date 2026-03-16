@@ -8,36 +8,36 @@ import {
 
 const faqs = [
   {
-    q: "Est-ce légal de louer sa place de parking entre particuliers ?",
-    a: "Oui, la location de places de stationnement entre particuliers est parfaitement légale en France. TaPlaceGo facilite simplement la mise en relation et sécurise les transactions.",
+    q: "Est-ce légal de louer sa place entre particuliers ?",
+    a: "Oui, c'est parfaitement légal en France. TaPlaceGo facilite la mise en relation et sécurise les transactions entre propriétaires et conducteurs.",
   },
   {
     q: "Comment sont fixés les prix ?",
-    a: "Chaque propriétaire fixe librement son tarif horaire ou journalier. Nous affichons un prix indicatif basé sur le marché local pour vous aider à rester compétitif.",
+    a: "Chaque propriétaire fixe librement son tarif. Nous affichons un prix indicatif basé sur le marché local pour rester compétitif.",
   },
   {
-    q: "Que se passe-t-il en cas de problème ou de dommage ?",
-    a: "Une assurance est incluse dans chaque réservation. Notre support est disponible 24/7 pour résoudre tout incident rapidement.",
+    q: "Que se passe-t-il en cas de problème ?",
+    a: "Une assurance est incluse dans chaque réservation. Notre support est disponible 24/7 pour résoudre tout incident.",
   },
   {
     q: "Comment fonctionne le paiement ?",
-    a: "Le paiement est 100% sécurisé via la plateforme. Le conducteur paie à la réservation, et le propriétaire reçoit son versement sous 48h après la fin de la location.",
+    a: "Le paiement est 100% sécurisé via la plateforme. Le conducteur paie à la réservation, le propriétaire reçoit son versement sous 48h.",
   },
   {
     q: "Le service est-il disponible dans ma ville ?",
-    a: "Nous lançons d'abord à Toulouse, puis nous nous étendrons progressivement à d'autres villes françaises. Inscrivez-vous à la liste d'attente pour être informé du lancement dans votre ville.",
+    a: "Nous lançons à Toulouse en premier, puis nous nous étendrons progressivement. Inscrivez-vous pour être informé du lancement dans votre ville.",
   },
 ];
 
 const FAQ = () => {
   return (
-    <section id="faq" className="py-24 bg-background">
+    <section id="faq" className="py-20 bg-card">
       <div className="max-w-3xl mx-auto px-6">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-4xl font-bold text-navy text-center mb-16"
+          className="text-4xl font-extrabold text-navy text-center mb-16"
         >
           Questions fréquentes
         </motion.h2>
@@ -47,17 +47,17 @@ const FAQ = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <Accordion type="single" collapsible className="space-y-3">
+          <Accordion type="single" collapsible className="space-y-0">
             {faqs.map((faq, i) => (
               <AccordionItem
                 key={i}
                 value={`faq-${i}`}
-                className="bg-card border border-border rounded-2xl px-6 overflow-hidden"
+                className="border-b border-card-border px-0"
               >
                 <AccordionTrigger className="text-left font-semibold text-navy hover:no-underline py-5">
                   {faq.q}
                 </AccordionTrigger>
-                <AccordionContent className="text-anthracite leading-relaxed pb-5">
+                <AccordionContent className="text-anthracite leading-[1.7] pb-5 max-w-[640px]">
                   {faq.a}
                 </AccordionContent>
               </AccordionItem>

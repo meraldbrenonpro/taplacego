@@ -8,6 +8,17 @@ const navLinks = [
   { name: "Rejoindre", href: "#cta" },
 ];
 
+const Logo = () => (
+  <div className="flex items-center gap-2">
+    <MapPin className="text-copper w-6 h-6" />
+    <span className="text-2xl font-extrabold tracking-tight">
+      <span className="text-navy">Ta</span>
+      <span className="text-copper">Place</span>
+      <span className="text-navy">Go</span>
+    </span>
+  </div>
+);
+
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -22,19 +33,12 @@ const Navbar = () => {
     <nav
       className={`fixed w-full z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-background/90 backdrop-blur-md shadow-sm py-3"
+          ? "bg-background/90 backdrop-blur-lg shadow-md py-3"
           : "bg-transparent py-5"
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
-        <div className="flex items-center gap-2">
-          <div className="w-8 h-8 bg-emerald rounded-lg flex items-center justify-center">
-            <MapPin className="text-primary-foreground w-5 h-5" />
-          </div>
-          <span className="text-2xl font-bold text-navy tracking-tight">
-            TaPlaceGo
-          </span>
-        </div>
+        <Logo />
 
         <div className="hidden md:flex items-center gap-8">
           {navLinks.map((link) => (
@@ -48,7 +52,7 @@ const Navbar = () => {
           ))}
           <a
             href="#cta"
-            className="bg-emerald hover:brightness-90 text-primary-foreground px-6 py-2.5 rounded-xl font-semibold transition-all shadow-md hover:shadow-lg active:scale-95"
+            className="bg-copper hover:brightness-90 text-primary-foreground px-6 py-2.5 rounded-full font-semibold transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5 active:scale-95"
           >
             Rejoindre la liste
           </a>
@@ -84,7 +88,7 @@ const Navbar = () => {
             <a
               href="#cta"
               onClick={() => setIsOpen(false)}
-              className="bg-emerald text-primary-foreground p-4 rounded-xl font-bold text-center"
+              className="bg-copper text-primary-foreground p-4 rounded-full font-bold text-center"
             >
               Rejoindre la liste d'attente
             </a>

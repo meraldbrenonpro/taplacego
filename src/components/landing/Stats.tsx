@@ -8,7 +8,7 @@ const stats = [
 
 const Stats = () => {
   return (
-    <section className="bg-navy py-20">
+    <section className="bg-gradient-to-b from-navy to-navy-deep py-20">
       <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-12 text-center">
         {stats.map((s, i) => (
           <motion.div
@@ -18,10 +18,10 @@ const Stats = () => {
             viewport={{ once: true }}
             transition={{ delay: i * 0.15 }}
           >
-            <div className="text-4xl md:text-5xl font-bold text-emerald mb-2 tracking-tighter">
+            <div className="text-4xl md:text-5xl font-extrabold text-copper mb-2 tracking-tighter">
               {s.val}
             </div>
-            <div className="text-lavender font-medium uppercase tracking-widest text-sm">
+            <div className="text-primary-foreground/70 font-medium uppercase tracking-widest text-sm">
               {s.label}
             </div>
           </motion.div>
