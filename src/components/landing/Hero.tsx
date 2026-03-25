@@ -3,7 +3,7 @@ import heroBg from "@/assets/hero-bg.mp4.asset.json";
 
 const Hero = () => {
   return (
-    <section className="relative pt-32 pb-20 overflow-hidden bg-navy-deep min-h-[90vh] flex items-center">
+    <section data-section-dark className="relative pt-32 pb-20 overflow-hidden bg-navy-deep min-h-[90vh] flex items-center">
       {/* Video background */}
       <video
         autoPlay
