@@ -8,7 +8,7 @@ const stats = [
 
 const Stats = () => {
   return (
-    <section className="bg-gradient-to-b from-navy to-navy-deep py-20">
+    <section data-section-dark className="bg-gradient-to-b from-navy to-navy-deep py-20">
       <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-12 text-center">
         {stats.map((s, i) => (
           <motion.div
