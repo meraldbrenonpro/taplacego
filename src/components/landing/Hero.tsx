@@ -69,61 +69,7 @@ const Hero = () => {
           </motion.div>
         </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-          className="relative"
-        >
-          <svg
-            viewBox="0 0 500 500"
-            className="w-full h-auto drop-shadow-2xl"
-            aria-label="Illustration de stationnement collaboratif"
-            role="img"
-          >
-            <defs>
-              <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" style={{ stopColor: "#1B2A4A", stopOpacity: 1 }} />
-                <stop offset="100%" style={{ stopColor: "#2a4270", stopOpacity: 1 }} />
-              </linearGradient>
-            </defs>
-            <rect x="50" y="50" width="400" height="400" rx="40" fill="#F7F6F3" />
-            {[0, 1, 2].map((i) => (
-              <rect
-                key={`l${i}`}
-                x="100"
-                y={100 + i * 110}
-                width="140"
-                height="80"
-                rx="12"
-                fill="white"
-                stroke="#E5E2DB"
-                strokeWidth="2"
-              />
-            ))}
-            {[0, 1, 2].map((i) => (
-              <rect
-                key={`r${i}`}
-                x="260"
-                y={100 + i * 110}
-                width="140"
-                height="80"
-                rx="12"
-                fill={i === 1 ? "#C4835A" : "white"}
-                stroke={i === 1 ? "#C4835A" : "#E5E2DB"}
-                strokeWidth="2"
-              />
-            ))}
-            <motion.path
-              animate={{ y: [0, -5, 0] }}
-              transition={{ repeat: Infinity, duration: 3 }}
-              d="M280 230h100l10 20v20h-120v-20z"
-              fill="#1B2A4A"
-            />
-            <circle cx="300" cy="270" r="8" fill="#555" />
-            <circle cx="360" cy="270" r="8" fill="#555" />
-          </svg>
-        </motion.div>
+        <div className="hidden lg:block" />
       </div>
     </section>
   );
