@@ -11,10 +11,10 @@ const navLinks = [
 const Logo = () => (
   <div className="flex items-center gap-2">
     <MapPin className="text-copper w-6 h-6" />
-    <span className="text-2xl font-extrabold tracking-tight">
-      <span className="text-navy">Ta</span>
+    <span className={`text-2xl font-extrabold tracking-tight transition-colors duration-300 ${dark ? "text-white" : ""}`}>
+      <span className={dark ? "text-white" : "text-navy"}>Ta</span>
       <span className="text-copper">Place</span>
-      <span className="text-navy">Go</span>
+      <span className={dark ? "text-white" : "text-navy"}>Go</span>
     </span>
   </div>
 );
