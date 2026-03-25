@@ -42,7 +42,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4 }}
-            className="text-xl text-anthracite mb-10 max-w-lg leading-relaxed"
+            className="text-xl text-white/70 mb-10 max-w-lg leading-relaxed"
           >
             Partagez votre place privée quand vous ne l'utilisez pas ou trouvez
             un stationnement garanti en quelques secondes. Moins de stress, plus
