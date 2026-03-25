@@ -62,7 +62,7 @@ const Hero = () => {
             </a>
             <a
               href="#how-it-works"
-              className="border-2 border-navy text-navy px-8 py-4 rounded-full font-bold text-lg hover:bg-navy hover:text-primary-foreground transition-all text-center"
+              className="border-2 border-white/30 text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-white/10 transition-all text-center"
             >
               Découvrir le concept
             </a>
