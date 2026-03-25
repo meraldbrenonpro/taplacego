@@ -1,9 +1,21 @@
 import { motion } from "framer-motion";
+import heroBg from "@/assets/hero-bg.mp4.asset.json";
 
 const Hero = () => {
   return (
-    <section className="relative pt-32 pb-20 overflow-hidden bg-background">
-      <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center">
+    <section className="relative pt-32 pb-20 overflow-hidden bg-navy-deep min-h-[90vh] flex items-center">
+      {/* Video background */}
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover"
+        src={heroBg.url}
+      />
+      {/* Dark overlay */}
+      <div className="absolute inset-0 bg-gradient-to-b from-[hsl(var(--navy-deep))]/80 via-[hsl(var(--navy))]/70 to-[hsl(var(--navy-deep))]/90" />
+      <div className="relative z-10 max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
