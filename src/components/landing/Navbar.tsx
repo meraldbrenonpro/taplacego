@@ -8,13 +8,13 @@ const navLinks = [
   { name: "Rejoindre", href: "#cta" },
 ];
 
-const Logo = () => (
+const Logo = ({ dark }: { dark?: boolean }) => (
   <div className="flex items-center gap-2">
-    <MapPin className="text-copper w-6 h-6" />
+    <MapPin className={`w-6 h-6 ${dark ? "text-copper" : "text-copper"}`} />
     <span className="text-2xl font-extrabold tracking-tight">
-      <span className="text-navy">Ta</span>
+      <span className={dark ? "text-white" : "text-navy"}>Ta</span>
       <span className="text-copper">Place</span>
-      <span className="text-navy">Go</span>
+      <span className={dark ? "text-white" : "text-navy"}>Go</span>
     </span>
   </div>
 );
@@ -38,14 +38,18 @@ const Navbar = () => {
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
-        <Logo />
+        <Logo dark={!scrolled} />
 
         <div className="hidden md:flex items-center gap-8">
           {navLinks.map((link) => (
             <a
               key={link.name}
               href={link.href}
-              className="text-anthracite hover:text-navy font-medium transition-colors"
+              className={`font-medium transition-colors ${
+                scrolled
+                  ? "text-anthracite hover:text-navy"
+                  : "text-white/70 hover:text-white"
+              }`}
             >
               {link.name}
             </a>
@@ -59,7 +63,7 @@ const Navbar = () => {
         </div>
 
         <button
-          className="md:hidden text-navy"
+          className={`md:hidden ${scrolled ? "text-navy" : "text-white"}`}
           onClick={() => setIsOpen(!isOpen)}
           aria-label={isOpen ? "Fermer le menu" : "Ouvrir le menu"}
         >
