@@ -8,6 +8,7 @@ import Testimonials from "@/components/landing/Testimonials";
 import Stats from "@/components/landing/Stats";
 import FAQ from "@/components/landing/FAQ";
 import CTASection from "@/components/landing/CTASection";
+import AppCTA from "@/components/landing/AppCTA";
 import Footer from "@/components/landing/Footer";
 
 const Index = () => {
@@ -20,6 +21,7 @@ const Index = () => {
         <Benefits />
         <DualTarget />
         <ProductPreview />
+        <AppCTA />
         <Testimonials />
         <Stats />
         <FAQ />

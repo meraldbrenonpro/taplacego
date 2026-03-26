@@ -1,16 +1,12 @@
 import { motion } from "framer-motion";
-import { MapPin, Star, Search, Locate, Zap, Lock, Radio } from "lucide-react";
+import { Locate, Zap, Lock, Radio } from "lucide-react";
+import phoneMockup from "@/assets/phone-mockup.png";
 
 const badges = [
   { label: "Géolocalisation intégrée", icon: <Locate size={14} />, side: "left", top: "15%" },
   { label: "Réservation instantanée", icon: <Zap size={14} />, side: "left", top: "55%" },
   { label: "Paiement sécurisé", icon: <Lock size={14} />, side: "right", top: "20%" },
   { label: "Suivi en temps réel", icon: <Radio size={14} />, side: "right", top: "60%" },
-];
-
-const results = [
-  { name: "Capitole, Toulouse", price: "2€/h", distance: "350m", rating: 4.9 },
-  { name: "Saint-Cyprien", price: "1,50€/h", distance: "800m", rating: 4.7 },
 ];
 
 const ProductPreview = () => {
@@ -49,7 +45,7 @@ const ProductPreview = () => {
               ))}
           </div>
 
-          {/* Phone mockup */}
+          {/* Phone mockup image */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -57,88 +53,14 @@ const ProductPreview = () => {
             transition={{ duration: 0.6 }}
             className="relative w-[280px] sm:w-[300px]"
           >
-            <div className="bg-navy rounded-[2.5rem] p-3 shadow-2xl">
-              <div className="bg-card rounded-[2rem] overflow-hidden">
-                {/* Status bar */}
-                <div className="bg-navy text-primary-foreground text-xs flex justify-between px-6 py-2">
-                  <span>9:41</span>
-                  <span>●●●</span>
-                </div>
-
-                {/* App header */}
-                <div className="px-4 pt-3 pb-1 flex items-center justify-between">
-                  <div className="flex items-center gap-1.5">
-                    <MapPin className="text-copper" size={14} />
-                    <span className="text-xs font-bold text-navy">
-                      <span>Ta</span><span className="text-copper">Place</span><span>Go</span>
-                    </span>
-                  </div>
-                  <span className="text-sm text-navy">Bonjour 👋</span>
-                </div>
-
-                {/* Search bar */}
-                <div className="px-4 py-3">
-                  <div className="flex items-center gap-2 bg-light-gray rounded-full px-3 py-2.5">
-                    <Search size={16} className="text-anthracite" />
-                    <span className="text-sm text-anthracite">
-                      Où allez-vous ?
-                    </span>
-                  </div>
-                </div>
-
-                {/* Mini map */}
-                <div className="mx-4 h-28 bg-light-gray rounded-xl relative overflow-hidden mb-3">
-                  <div className="absolute inset-0 opacity-30">
-                    <svg viewBox="0 0 200 100" className="w-full h-full">
-                      <path d="M0,50 Q50,20 100,50 T200,50" fill="none" stroke="hsl(var(--navy))" strokeWidth="1.5" />
-                      <path d="M20,30 Q60,60 120,30 T200,40" fill="none" stroke="hsl(var(--navy))" strokeWidth="1" opacity="0.5" />
-                      <rect x="40" y="20" width="20" height="15" rx="2" fill="hsl(var(--navy))" opacity="0.15" />
-                      <rect x="80" y="35" width="25" height="12" rx="2" fill="hsl(var(--navy))" opacity="0.15" />
-                      <rect x="130" y="25" width="18" height="18" rx="2" fill="hsl(var(--navy))" opacity="0.15" />
-                    </svg>
-                  </div>
-                  <div className="absolute top-1/3 left-1/3">
-                    <MapPin className="text-copper" size={20} fill="hsl(var(--copper))" />
-                  </div>
-                  <div className="absolute top-1/2 left-2/3">
-                    <MapPin className="text-copper" size={20} fill="hsl(var(--copper))" />
-                  </div>
-                  <div className="absolute top-1/4 left-1/2">
-                    <MapPin className="text-copper" size={16} fill="hsl(var(--copper))" />
-                  </div>
-                </div>
-
-                {/* Results */}
-                <div className="px-4 pb-4 space-y-2">
-                  {results.map((r) => (
-                    <div
-                      key={r.name}
-                      className="bg-light-gray rounded-xl p-3 flex items-center justify-between"
-                    >
-                      <div>
-                        <p className="text-sm font-bold text-navy">{r.name}</p>
-                        <p className="text-xs text-anthracite">{r.distance}</p>
-                      </div>
-                      <div className="text-right">
-                        <p className="text-sm font-bold text-copper">
-                          {r.price}
-                        </p>
-                        <div className="flex items-center gap-0.5">
-                          <Star
-                            size={12}
-                            className="text-copper"
-                            fill="hsl(var(--copper))"
-                          />
-                          <span className="text-xs text-anthracite">
-                            {r.rating}
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
+            <img
+              src={phoneMockup}
+              alt="Aperçu de l'application TaPlaceGo"
+              loading="lazy"
+              width={300}
+              height={600}
+              className="w-full h-auto drop-shadow-2xl"
+            />
           </motion.div>
 
           {/* Floating badges - right */}
