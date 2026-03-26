@@ -26,6 +26,7 @@ const DualTarget = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
           className="text-4xl font-extrabold text-navy text-center mb-16"
         >
           Une solution pour chacun
@@ -33,15 +34,20 @@ const DualTarget = () => {
         <div className="grid md:grid-cols-2 gap-8">
           {/* Propriétaires */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-            className="bg-card p-8 rounded-2xl border border-card-border flex flex-col hover:-translate-y-1 hover:shadow-[0_8px_24px_rgba(27,42,74,0.08)] transition-all duration-300"
+            transition={{ duration: 0.6, delay: 0.1 }}
+            whileHover={{ y: -6, boxShadow: "0 20px 40px rgba(27,42,74,0.1)" }}
+            className="bg-card p-8 rounded-2xl border border-card-border flex flex-col transition-colors duration-300"
           >
-            <div className="text-copper mb-4">
+            <motion.div
+              className="text-copper mb-4"
+              whileHover={{ scale: 1.1, rotate: -5 }}
+              transition={{ type: "spring", stiffness: 300 }}
+            >
               <Home size={32} />
-            </div>
+            </motion.div>
             <h3 className="text-2xl font-bold text-navy mb-2">
               Vous avez une place libre ?
             </h3>
@@ -49,17 +55,24 @@ const DualTarget = () => {
               Transformez votre place inutilisée en source de revenus.
             </p>
             <ul className="space-y-3 mb-8 flex-1">
-              {ownerBenefits.map((b) => (
-                <li key={b} className="flex items-start gap-3 text-foreground">
+              {ownerBenefits.map((b, i) => (
+                <motion.li
+                  key={b}
+                  initial={{ opacity: 0, x: -10 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.3 + i * 0.1 }}
+                  className="flex items-start gap-3 text-foreground"
+                >
                   <Check className="text-copper mt-0.5 shrink-0" size={20} />
                   <span>{b}</span>
-                </li>
+                </motion.li>
               ))}
             </ul>
             <Button
               variant="outline"
               size="lg"
-              className="w-full rounded-full border-navy text-navy hover:bg-navy hover:text-primary-foreground transition-all hover:-translate-y-0.5"
+              className="w-full rounded-full border-navy text-navy hover:bg-navy hover:text-primary-foreground transition-all hover:-translate-y-0.5 active:scale-95"
               onClick={scrollToCTA}
             >
               Proposer ma place →
@@ -68,15 +81,20 @@ const DualTarget = () => {
 
           {/* Conducteurs */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-            className="bg-card p-8 rounded-2xl border border-card-border flex flex-col hover:-translate-y-1 hover:shadow-[0_8px_24px_rgba(27,42,74,0.08)] transition-all duration-300"
+            transition={{ duration: 0.6, delay: 0.2 }}
+            whileHover={{ y: -6, boxShadow: "0 20px 40px rgba(27,42,74,0.1)" }}
+            className="bg-card p-8 rounded-2xl border border-card-border flex flex-col transition-colors duration-300"
           >
-            <div className="text-copper mb-4">
+            <motion.div
+              className="text-copper mb-4"
+              whileHover={{ scale: 1.1, rotate: 5 }}
+              transition={{ type: "spring", stiffness: 300 }}
+            >
               <MapPin size={32} />
-            </div>
+            </motion.div>
             <h3 className="text-2xl font-bold text-navy mb-2">
               Vous cherchez où vous garer ?
             </h3>
@@ -84,16 +102,23 @@ const DualTarget = () => {
               Réservez une place en quelques secondes, près de votre destination.
             </p>
             <ul className="space-y-3 mb-8 flex-1">
-              {driverBenefits.map((b) => (
-                <li key={b} className="flex items-start gap-3 text-foreground">
+              {driverBenefits.map((b, i) => (
+                <motion.li
+                  key={b}
+                  initial={{ opacity: 0, x: -10 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.4 + i * 0.1 }}
+                  className="flex items-start gap-3 text-foreground"
+                >
                   <Check className="text-copper mt-0.5 shrink-0" size={20} />
                   <span>{b}</span>
-                </li>
+                </motion.li>
               ))}
             </ul>
             <Button
               size="lg"
-              className="w-full rounded-full bg-copper text-primary-foreground hover:brightness-90 transition-all hover:-translate-y-0.5"
+              className="w-full rounded-full bg-copper text-primary-foreground hover:brightness-90 transition-all hover:-translate-y-0.5 active:scale-95"
               onClick={scrollToCTA}
             >
               Trouver une place →

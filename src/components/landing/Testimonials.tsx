@@ -28,6 +28,21 @@ const testimonials = [
   },
 ];
 
+const containerVariants = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.15 } },
+};
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 30, scale: 0.95 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: { duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] as const },
+  },
+};
+
 const Testimonials = () => {
   return (
     <section className="py-20 bg-background">
@@ -36,29 +51,36 @@ const Testimonials = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
           className="text-4xl font-extrabold text-navy text-center mb-16"
         >
           Ils nous font déjà confiance
         </motion.h2>
 
-        <div className="grid md:grid-cols-3 gap-8 mb-12 md:overflow-visible overflow-x-auto">
-          {testimonials.map((t, i) => (
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="grid md:grid-cols-3 gap-8 mb-12 md:overflow-visible overflow-x-auto"
+        >
+          {testimonials.map((t) => (
             <motion.div
               key={t.name}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.15 }}
-              className="bg-card p-6 rounded-2xl border border-card-border flex flex-col hover:-translate-y-1 hover:shadow-[0_8px_24px_rgba(27,42,74,0.08)] transition-all duration-300 min-w-[280px]"
+              variants={cardVariants}
+              whileHover={{ y: -6, boxShadow: "0 16px 32px rgba(27,42,74,0.1)" }}
+              className="bg-card p-6 rounded-2xl border border-card-border flex flex-col transition-colors duration-300 min-w-[280px]"
             >
               <div className="flex items-center gap-4 mb-4">
-                <img
+                <motion.img
                   src={t.avatar}
                   alt={t.name}
                   loading="lazy"
                   width={48}
                   height={48}
-                  className="w-12 h-12 rounded-full object-cover"
+                  className="w-12 h-12 rounded-full object-cover ring-2 ring-copper/20"
+                  whileHover={{ scale: 1.1 }}
+                  transition={{ type: "spring", stiffness: 300 }}
                 />
                 <div>
                   <p className="font-bold text-navy">{t.name}</p>
@@ -80,12 +102,13 @@ const Testimonials = () => {
               </p>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
 
         <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
+          initial={{ opacity: 0, scale: 0.9 }}
+          whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
           className="text-center"
         >
           <span className="inline-flex items-center gap-2 bg-copper/10 text-copper font-semibold px-5 py-2.5 rounded-full text-sm">

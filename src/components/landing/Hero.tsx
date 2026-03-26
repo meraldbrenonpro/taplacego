@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import heroBg from "@/assets/hero-bg.mp4.asset.json";
+import logoLight from "@/assets/logo-light.png";
 
 const Hero = () => {
   return (
@@ -21,6 +22,14 @@ const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
         >
+          <motion.img
+            src={logoLight}
+            alt="TaPlaceGo"
+            className="h-10 w-auto mb-8"
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.15, type: "spring", stiffness: 200 }}
+          />
           <motion.span
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
@@ -44,9 +53,7 @@ const Hero = () => {
             transition={{ delay: 0.4 }}
             className="text-xl text-white/70 mb-10 max-w-lg leading-relaxed"
           >
-            Partagez votre place privée quand vous ne l'utilisez pas ou trouvez
-            un stationnement garanti en quelques secondes. Moins de stress, plus
-            d'économies.
+            La plateforme collaborative qui simplifie le stationnement urbain en connectant les propriétaires de places et les conducteurs.
           </motion.p>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -56,13 +63,13 @@ const Hero = () => {
           >
             <a
               href="#cta"
-              className="bg-copper hover:brightness-90 text-primary-foreground px-8 py-4 rounded-full font-bold text-lg shadow-xl shadow-copper/20 transition-all hover:-translate-y-1 text-center"
+              className="bg-copper hover:brightness-90 text-primary-foreground px-8 py-4 rounded-full font-bold text-lg shadow-xl shadow-copper/20 transition-all hover:-translate-y-1 hover:scale-[1.02] active:scale-95 text-center"
             >
               Rejoindre la liste d'attente
             </a>
             <a
               href="#how-it-works"
-              className="border-2 border-white/30 text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-white/10 transition-all text-center"
+              className="border-2 border-white/30 text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-white/10 hover:border-white/50 transition-all text-center"
             >
               Découvrir le concept
             </a>
