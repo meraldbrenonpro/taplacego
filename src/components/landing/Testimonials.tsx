@@ -1,30 +1,30 @@
 import { motion } from "framer-motion";
 import { Star } from "lucide-react";
+import avatarSophie from "@/assets/avatar-sophie.jpg";
+import avatarThomas from "@/assets/avatar-thomas.jpg";
+import avatarLaura from "@/assets/avatar-laura.jpg";
 
 const testimonials = [
   {
-    initials: "S.M.",
     name: "Sophie M.",
     role: "Conductrice à Toulouse",
     quote:
       "Je ne tourne plus 20 minutes pour me garer. En 2 clics, j'ai ma place réservée près du Capitole.",
-    avatarBg: "bg-copper",
+    avatar: avatarSophie,
   },
   {
-    initials: "T.R.",
     name: "Thomas R.",
     role: "Propriétaire, Saint-Cyprien",
     quote:
       "Ma place restait vide la journée. Maintenant elle me rapporte 120€ par mois sans aucun effort.",
-    avatarBg: "bg-navy",
+    avatar: avatarThomas,
   },
   {
-    initials: "L.B.",
     name: "Laura B.",
     role: "Étudiante à Toulouse",
     quote:
       "Enfin une alternative abordable aux parkings hors de prix du centre-ville. L'app est super intuitive.",
-    avatarBg: "bg-copper",
+    avatar: avatarLaura,
   },
 ];
 
@@ -52,9 +52,14 @@ const Testimonials = () => {
               className="bg-card p-6 rounded-2xl border border-card-border flex flex-col hover:-translate-y-1 hover:shadow-[0_8px_24px_rgba(27,42,74,0.08)] transition-all duration-300 min-w-[280px]"
             >
               <div className="flex items-center gap-4 mb-4">
-                <div className={`w-12 h-12 rounded-full ${t.avatarBg} flex items-center justify-center text-primary-foreground font-bold text-sm`}>
-                  {t.initials}
-                </div>
+                <img
+                  src={t.avatar}
+                  alt={t.name}
+                  loading="lazy"
+                  width={48}
+                  height={48}
+                  className="w-12 h-12 rounded-full object-cover"
+                />
                 <div>
                   <p className="font-bold text-navy">{t.name}</p>
                   <p className="text-sm text-anthracite">{t.role}</p>

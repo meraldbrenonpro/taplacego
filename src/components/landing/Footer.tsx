@@ -1,18 +1,17 @@
-import { MapPin, Instagram, Twitter, Linkedin } from "lucide-react";
+import { Instagram, Twitter, Linkedin } from "lucide-react";
+import logoLight from "@/assets/logo-light.png";
 
 const Footer = () => {
   return (
     <footer data-section-dark className="bg-navy-deep text-primary-foreground pt-20 pb-10 border-t border-primary-foreground/10">
       <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-12 mb-16">
         <div className="col-span-1 md:col-span-2">
-          <div className="flex items-center gap-2 mb-6">
-            <MapPin className="text-copper w-6 h-6" />
-            <span className="text-2xl font-extrabold tracking-tight">
-              <span className="text-primary-foreground">Ta</span>
-              <span className="text-copper">Place</span>
-              <span className="text-primary-foreground">Go</span>
-            </span>
-          </div>
+          <img
+            src={logoLight}
+            alt="TaPlaceGo"
+            className="h-8 w-auto mb-6"
+            loading="lazy"
+          />
           <p className="text-primary-foreground/70 max-w-sm leading-relaxed">
             La plateforme collaborative qui simplifie le stationnement urbain en
             connectant les propriétaires de places et les conducteurs.
