@@ -19,6 +19,23 @@ const steps = [
   },
 ];
 
+const containerVariants = {
+  hidden: {},
+  visible: {
+    transition: { staggerChildren: 0.2 },
+  },
+};
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 40, scale: 0.95 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: { duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] },
+  },
+};
+
 const HowItWorks = () => {
   return (
     <section id="how-it-works" className="py-20 bg-background">
@@ -28,36 +45,51 @@ const HowItWorks = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
             className="text-4xl font-extrabold text-navy mb-4"
           >
             Comment ça marche ?
           </motion.h2>
-          <div className="w-20 h-1.5 bg-copper mx-auto rounded-full" />
+          <motion.div
+            initial={{ scaleX: 0 }}
+            whileInView={{ scaleX: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="w-20 h-1.5 bg-copper mx-auto rounded-full origin-center"
+          />
         </div>
 
-        <div className="relative grid md:grid-cols-3 gap-12">
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="relative grid md:grid-cols-3 gap-12"
+        >
           <div className="hidden md:block absolute top-1/2 left-0 w-full h-0.5 border-t-2 border-dashed border-card-border -z-10" />
 
           {steps.map((step, idx) => (
             <motion.div
               key={idx}
-              whileInView={{ opacity: 1, y: 0 }}
-              initial={{ opacity: 0, y: 20 }}
-              viewport={{ once: true }}
-              transition={{ delay: idx * 0.15 }}
-              className="bg-card p-8 rounded-2xl shadow-md border border-card-border flex flex-col items-center text-center relative hover:-translate-y-1 hover:shadow-lg transition-all duration-300"
+              variants={cardVariants}
+              whileHover={{ y: -8, boxShadow: "0 20px 40px rgba(27,42,74,0.12)" }}
+              className="bg-card p-8 rounded-2xl shadow-md border border-card-border flex flex-col items-center text-center relative transition-colors duration-300"
             >
-              <div className="w-16 h-16 bg-copper/10 text-copper rounded-2xl flex items-center justify-center mb-6">
+              <motion.div
+                className="w-16 h-16 bg-copper/10 text-copper rounded-2xl flex items-center justify-center mb-6"
+                whileHover={{ rotate: 5, scale: 1.1 }}
+                transition={{ type: "spring", stiffness: 300 }}
+              >
                 {step.icon}
-              </div>
-              <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-copper text-primary-foreground w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm">
+              </motion.div>
+              <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-copper text-primary-foreground w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm shadow-lg shadow-copper/30">
                 {idx + 1}
               </div>
               <h3 className="text-xl font-bold text-navy mb-3">{step.title}</h3>
               <p className="text-anthracite leading-relaxed">{step.desc}</p>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
