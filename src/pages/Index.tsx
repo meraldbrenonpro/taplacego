@@ -13,7 +13,7 @@ import Footer from "@/components/landing/Footer";
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-background antialiased selection:bg-copper selection:text-primary-foreground">
+    <div className="min-h-screen mesh-gradient antialiased selection:bg-copper selection:text-primary-foreground">
       <Navbar />
       <main>
         <Hero />

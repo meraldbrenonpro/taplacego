@@ -21,24 +21,20 @@ const steps = [
 
 const containerVariants = {
   hidden: {},
-  visible: {
-    transition: { staggerChildren: 0.2 },
-  },
+  visible: { transition: { staggerChildren: 0.2 } },
 };
 
 const cardVariants = {
   hidden: { opacity: 0, y: 40, scale: 0.95 },
   visible: {
-    opacity: 1,
-    y: 0,
-    scale: 1,
+    opacity: 1, y: 0, scale: 1,
     transition: { duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] as const },
   },
 };
 
 const HowItWorks = () => {
   return (
-    <section id="how-it-works" className="py-20 bg-background">
+    <section id="how-it-works" className="py-20">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-20">
           <motion.h2
@@ -66,17 +62,17 @@ const HowItWorks = () => {
           viewport={{ once: true }}
           className="relative grid md:grid-cols-3 gap-12"
         >
-          <div className="hidden md:block absolute top-1/2 left-0 w-full h-0.5 border-t-2 border-dashed border-card-border -z-10" />
+          <div className="hidden md:block absolute top-1/2 left-0 w-full h-0.5 border-t-2 border-dashed border-white/20 -z-10" />
 
           {steps.map((step, idx) => (
             <motion.div
               key={idx}
               variants={cardVariants}
               whileHover={{ y: -8, boxShadow: "0 20px 40px rgba(27,42,74,0.12)" }}
-              className="bg-card p-8 rounded-2xl shadow-md border border-card-border flex flex-col items-center text-center relative transition-colors duration-300"
+              className="glass-strong p-8 rounded-2xl flex flex-col items-center text-center relative transition-all duration-300"
             >
               <motion.div
-                className="w-16 h-16 bg-copper/10 text-copper rounded-2xl flex items-center justify-center mb-6"
+                className="w-16 h-16 bg-copper/10 text-copper rounded-2xl flex items-center justify-center mb-6 backdrop-blur-sm"
                 whileHover={{ rotate: 5, scale: 1.1 }}
                 transition={{ type: "spring", stiffness: 300 }}
               >

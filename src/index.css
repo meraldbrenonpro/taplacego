@@ -4,22 +4,22 @@
 
 @layer base {
   :root {
-    --background: 40 18% 96%;
+    --background: 220 20% 97%;
     --foreground: 217 45% 20%;
 
-    --card: 0 0% 100%;
+    --card: 0 0% 100% / 0.55;
     --card-foreground: 217 45% 20%;
 
-    --popover: 0 0% 100%;
+    --popover: 0 0% 100% / 0.7;
     --popover-foreground: 217 45% 20%;
 
     --primary: 217 45% 20%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 40 18% 96%;
+    --secondary: 220 20% 97%;
     --secondary-foreground: 217 45% 20%;
 
-    --muted: 40 14% 92%;
+    --muted: 220 14% 92%;
     --muted-foreground: 220 9% 46%;
 
     --accent: 22 45% 56%;
@@ -28,11 +28,11 @@
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 34 18% 88%;
-    --input: 34 18% 88%;
+    --border: 0 0% 100% / 0.25;
+    --input: 0 0% 100% / 0.3;
     --ring: 22 45% 56%;
 
-    --radius: 0.75rem;
+    --radius: 1rem;
 
     /* TaPlaceGo custom tokens */
     --navy: 217 45% 20%;
@@ -40,8 +40,14 @@
     --copper: 22 45% 56%;
     --lavender: 218 46% 85%;
     --anthracite: 220 9% 46%;
-    --light-gray: 40 14% 92%;
-    --card-border: 34 18% 88%;
+    --light-gray: 220 14% 92%;
+    --card-border: 0 0% 100% / 0.2;
+
+    /* Glass tokens */
+    --glass-bg: 0 0% 100% / 0.12;
+    --glass-bg-strong: 0 0% 100% / 0.25;
+    --glass-border: 0 0% 100% / 0.18;
+    --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
@@ -66,5 +72,47 @@
   body {
     @apply bg-background text-foreground font-sans antialiased;
     font-family: 'Plus Jakarta Sans', sans-serif;
+  }
+}
+
+@layer utilities {
+  .glass {
+    background: hsla(0, 0%, 100%, 0.12);
+    backdrop-filter: blur(20px) saturate(1.8);
+    -webkit-backdrop-filter: blur(20px) saturate(1.8);
+    border: 1px solid hsla(0, 0%, 100%, 0.18);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
+  }
+
+  .glass-strong {
+    background: hsla(0, 0%, 100%, 0.55);
+    backdrop-filter: blur(24px) saturate(1.8);
+    -webkit-backdrop-filter: blur(24px) saturate(1.8);
+    border: 1px solid hsla(0, 0%, 100%, 0.35);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+  }
+
+  .glass-dark {
+    background: hsla(220, 50%, 12%, 0.6);
+    backdrop-filter: blur(24px) saturate(1.8);
+    -webkit-backdrop-filter: blur(24px) saturate(1.8);
+    border: 1px solid hsla(0, 0%, 100%, 0.08);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  }
+
+  .mesh-gradient {
+    background:
+      radial-gradient(ellipse at 20% 0%, hsla(218, 46%, 85%, 0.4) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 20%, hsla(22, 45%, 56%, 0.15) 0%, transparent 50%),
+      radial-gradient(ellipse at 50% 80%, hsla(217, 45%, 20%, 0.08) 0%, transparent 50%),
+      hsl(220, 20%, 97%);
+  }
+
+  .mesh-gradient-dark {
+    background:
+      radial-gradient(ellipse at 20% 20%, hsla(22, 45%, 56%, 0.15) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 50%, hsla(218, 46%, 85%, 0.1) 0%, transparent 50%),
+      radial-gradient(ellipse at 50% 100%, hsla(220, 50%, 12%, 0.8) 0%, transparent 50%),
+      hsl(220, 50%, 12%);
   }
 }
