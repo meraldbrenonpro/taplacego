@@ -12,7 +12,7 @@ const badges = [
 
 const ProductPreview = () => {
   return (
-    <section className="py-20 bg-card">
+    <section className="py-20">
       <div className="max-w-7xl mx-auto px-6">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
@@ -25,32 +25,16 @@ const ProductPreview = () => {
         </motion.h2>
 
         <div className="relative flex items-center justify-center min-h-[550px]">
-          {/* Floating badges - left */}
           <div className="hidden lg:block absolute left-0 top-0 bottom-0 w-1/4">
-            {badges
-              .filter((b) => b.side === "left")
-              .map((b, i) => (
-                <motion.div
-                  key={b.label}
-                  initial={{ opacity: 0, x: -30 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.3 + i * 0.15, type: "spring", stiffness: 100 }}
-                  className="absolute right-0"
-                  style={{ top: b.top }}
-                >
-                  <motion.div
-                    whileHover={{ scale: 1.05, x: 5 }}
-                    className="bg-card border border-card-border px-4 py-2.5 rounded-full shadow-sm text-sm font-semibold text-navy whitespace-nowrap flex items-center gap-2 cursor-default"
-                  >
-                    <span className="text-copper">{b.icon}</span>
-                    {b.label}
-                  </motion.div>
+            {badges.filter((b) => b.side === "left").map((b, i) => (
+              <motion.div key={b.label} initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ delay: 0.3 + i * 0.15, type: "spring", stiffness: 100 }} className="absolute right-0" style={{ top: b.top }}>
+                <motion.div whileHover={{ scale: 1.05, x: 5 }} className="glass-strong px-4 py-2.5 rounded-full text-sm font-semibold text-navy whitespace-nowrap flex items-center gap-2 cursor-default">
+                  <span className="text-copper">{b.icon}</span>{b.label}
                 </motion.div>
-              ))}
+              </motion.div>
+            ))}
           </div>
 
-          {/* Phone mockup image */}
           <motion.div
             initial={{ opacity: 0, y: 50, scale: 0.9 }}
             whileInView={{ opacity: 1, y: 0, scale: 1 }}
@@ -58,57 +42,25 @@ const ProductPreview = () => {
             transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
             className="relative w-[280px] sm:w-[300px]"
           >
-            <motion.div
-              whileHover={{ y: -8, rotate: 1 }}
-              transition={{ type: "spring", stiffness: 200 }}
-            >
-              <PhoneMockup
-                phoneImage={phoneMockup}
-                alt="Aperçu de l'application TaPlaceGo"
-                logoVariant="light"
-                widthClassName="w-full"
-              />
+            <motion.div whileHover={{ y: -8, rotate: 1 }} transition={{ type: "spring", stiffness: 200 }}>
+              <PhoneMockup phoneImage={phoneMockup} alt="Aperçu de l'application TaPlaceGo" logoVariant="light" widthClassName="w-full" />
             </motion.div>
           </motion.div>
 
-          {/* Floating badges - right */}
           <div className="hidden lg:block absolute right-0 top-0 bottom-0 w-1/4">
-            {badges
-              .filter((b) => b.side === "right")
-              .map((b, i) => (
-                <motion.div
-                  key={b.label}
-                  initial={{ opacity: 0, x: 30 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.3 + i * 0.15, type: "spring", stiffness: 100 }}
-                  className="absolute left-0"
-                  style={{ top: b.top }}
-                >
-                  <motion.div
-                    whileHover={{ scale: 1.05, x: -5 }}
-                    className="bg-card border border-card-border px-4 py-2.5 rounded-full shadow-sm text-sm font-semibold text-navy whitespace-nowrap flex items-center gap-2 cursor-default"
-                  >
-                    <span className="text-copper">{b.icon}</span>
-                    {b.label}
-                  </motion.div>
+            {badges.filter((b) => b.side === "right").map((b, i) => (
+              <motion.div key={b.label} initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ delay: 0.3 + i * 0.15, type: "spring", stiffness: 100 }} className="absolute left-0" style={{ top: b.top }}>
+                <motion.div whileHover={{ scale: 1.05, x: -5 }} className="glass-strong px-4 py-2.5 rounded-full text-sm font-semibold text-navy whitespace-nowrap flex items-center gap-2 cursor-default">
+                  <span className="text-copper">{b.icon}</span>{b.label}
                 </motion.div>
-              ))}
+              </motion.div>
+            ))}
           </div>
 
-          {/* Mobile badges */}
           <div className="lg:hidden absolute -bottom-4 left-0 right-0 flex flex-wrap justify-center gap-2">
             {badges.map((b, i) => (
-              <motion.span
-                key={b.label}
-                initial={{ opacity: 0, y: 10 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className="bg-card border border-card-border px-3 py-1.5 rounded-full shadow-sm text-xs font-semibold text-navy flex items-center gap-1.5"
-              >
-                <span className="text-copper">{b.icon}</span>
-                {b.label}
+              <motion.span key={b.label} initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }} className="glass-strong px-3 py-1.5 rounded-full text-xs font-semibold text-navy flex items-center gap-1.5">
+                <span className="text-copper">{b.icon}</span>{b.label}
               </motion.span>
             ))}
           </div>
