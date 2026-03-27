@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { CheckCircle2, ArrowUpRight } from "lucide-react";
 import logoDark from "@/assets/logo-dark.png";
 import phoneMockup from "@/assets/phone-mockup.png";
+import PhoneMockup from "@/components/landing/PhoneMockup";
 
 const features = [
   "Réservation rapide où que tu sois",
@@ -34,17 +35,11 @@ const AppCTA = () => {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="flex justify-center lg:justify-start order-2 lg:order-1"
             >
-              <div className="relative">
-                <div className="absolute inset-0 bg-gradient-to-b from-copper/20 to-navy/10 rounded-[3rem] blur-2xl scale-90" />
-                <img
-                  src={phoneMockup}
-                  alt="Aperçu de l'application TaPlaceGo"
-                  loading="lazy"
-                  width={280}
-                  height={560}
-                  className="relative w-[220px] sm:w-[260px] h-auto drop-shadow-2xl"
-                />
-              </div>
+              <PhoneMockup
+                phoneImage={phoneMockup}
+                alt="Aperçu de l'application TaPlaceGo"
+                logoVariant="light"
+              />
             </motion.div>
 
             {/* Content */}
