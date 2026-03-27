@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Locate, Zap, Lock, Radio } from "lucide-react";
 import phoneMockup from "@/assets/phone-mockup.png";
+import PhoneMockup from "@/components/landing/PhoneMockup";
 
 const badges = [
   { label: "Géolocalisation intégrée", icon: <Locate size={14} />, side: "left", top: "15%" },
@@ -57,17 +58,17 @@ const ProductPreview = () => {
             transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
             className="relative w-[280px] sm:w-[300px]"
           >
-            <div className="absolute inset-0 bg-gradient-to-b from-copper/15 to-navy/10 rounded-[3rem] blur-2xl scale-95" />
-            <motion.img
-              src={phoneMockup}
-              alt="Aperçu de l'application TaPlaceGo"
-              loading="lazy"
-              width={300}
-              height={600}
-              className="relative w-full h-auto drop-shadow-2xl"
+            <motion.div
               whileHover={{ y: -8, rotate: 1 }}
               transition={{ type: "spring", stiffness: 200 }}
-            />
+            >
+              <PhoneMockup
+                phoneImage={phoneMockup}
+                alt="Aperçu de l'application TaPlaceGo"
+                logoVariant="light"
+                widthClassName="w-full"
+              />
+            </motion.div>
           </motion.div>
 
           {/* Floating badges - right */}
