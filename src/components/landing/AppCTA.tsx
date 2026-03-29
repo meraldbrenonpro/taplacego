@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { CheckCircle2, ArrowUpRight } from "lucide-react";
 import logoDark from "@/assets/logo-dark.png";
-import phoneMockup from "@/assets/phone-mockup.png";
+import phoneMockup from "@/assets/phone-mockup-v2.png";
 import PhoneMockup from "@/components/landing/PhoneMockup";
 
 const features = [
@@ -33,7 +33,7 @@ const AppCTA = () => {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="flex justify-center lg:justify-start order-2 lg:order-1"
             >
-              <PhoneMockup phoneImage={phoneMockup} alt="Aperçu de l'application TaPlaceGo" logoVariant="light" />
+              <PhoneMockup phoneImage={phoneMockup} alt="Aperçu de l'application TaPlaceGo" />
             </motion.div>
 
             <div className="order-1 lg:order-2">
