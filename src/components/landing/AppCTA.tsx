@@ -33,7 +33,7 @@ const AppCTA = () => {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="flex justify-center lg:justify-start order-2 lg:order-1"
             >
-              <PhoneMockup phoneImage={phoneMockup} alt="Aperçu de l'application TaPlaceGo" logoVariant="light" />
+              <PhoneMockup phoneImage={phoneMockup} alt="Aperçu de l'application TaPlaceGo" />
             </motion.div>
 
             <div className="order-1 lg:order-2">

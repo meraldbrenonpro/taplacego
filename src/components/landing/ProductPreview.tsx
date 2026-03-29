@@ -43,7 +43,7 @@ const ProductPreview = () => {
             className="relative w-[280px] sm:w-[300px]"
           >
             <motion.div whileHover={{ y: -8, rotate: 1 }} transition={{ type: "spring", stiffness: 200 }}>
-              <PhoneMockup phoneImage={phoneMockup} alt="Aperçu de l'application TaPlaceGo" logoVariant="light" widthClassName="w-full" />
+              <PhoneMockup phoneImage={phoneMockup} alt="Aperçu de l'application TaPlaceGo" widthClassName="w-full" />
             </motion.div>
           </motion.div>
 
