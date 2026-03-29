@@ -11,7 +11,7 @@ const PhoneMockup = ({
 }: PhoneMockupProps) => {
   return (
     <div className="relative">
-      <div className="absolute inset-0 rounded-[3rem] blur-2xl scale-90 bg-gradient-to-b from-copper/20 to-navy/10" />
+      <div className="absolute inset-0 rounded-[3rem] blur-2xl scale-90 bg-gradient-to-b from-copper/10 to-transparent" />
       <img
         src={phoneImage}
         alt={alt}
