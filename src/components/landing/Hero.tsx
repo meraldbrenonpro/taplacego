@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import heroBg from "@/assets/hero-bg.mp4.asset.json";
-import logoLight from "@/assets/logo-light.png";
+
 
 const Hero = () => {
   return (
@@ -22,14 +22,6 @@ const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
         >
-          <motion.img
-            src={logoLight}
-            alt="TaPlaceGo"
-            className="h-10 w-auto mb-8"
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.15, type: "spring", stiffness: 200 }}
-          />
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
