@@ -11,12 +11,11 @@ const PhoneMockup = ({
 }: PhoneMockupProps) => {
   return (
     <div className="relative">
-      <div className="absolute inset-0 rounded-[3rem] blur-2xl scale-90 bg-gradient-to-b from-copper/10 to-transparent" />
       <img
         src={phoneImage}
         alt={alt}
         loading="lazy"
-        className={`relative h-auto drop-shadow-2xl ${widthClassName}`}
+        className={`relative h-auto ${widthClassName}`}
       />
     </div>
   );
