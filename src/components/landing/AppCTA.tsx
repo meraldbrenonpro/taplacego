@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { CheckCircle2, ArrowUpRight } from "lucide-react";
 import logoDark from "@/assets/logo-dark.png";
-import phoneMockup from "@/assets/phone-mockup.png";
+import phoneMockup from "@/assets/phone-mockup-v2.png";
 import PhoneMockup from "@/components/landing/PhoneMockup";
 
 const features = [
