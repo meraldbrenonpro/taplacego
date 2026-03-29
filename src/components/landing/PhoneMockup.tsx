@@ -1,5 +1,5 @@
-import lightLogo from "@/assets/mockup-logo-light.png";
-import darkLogo from "@/assets/mockup-logo-dark.png";
+import lightLogo from "@/assets/logo-light.png";
+import darkLogo from "@/assets/logo-dark.png";
 
 interface PhoneMockupProps {
   phoneImage: string;

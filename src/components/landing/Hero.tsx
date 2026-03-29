@@ -30,14 +30,6 @@ const Hero = () => {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.15, type: "spring", stiffness: 200 }}
           />
-          <motion.span
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-            className="inline-block py-1 px-3 rounded-full bg-copper/10 text-copper text-sm font-bold mb-6 uppercase tracking-wider"
-          >
-            Lancement prochainement
-          </motion.span>
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
