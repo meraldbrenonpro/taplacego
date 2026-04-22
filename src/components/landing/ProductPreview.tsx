@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Locate, Zap, Lock, Radio } from "lucide-react";
-import phoneMockup from "@/assets/phone-mockup-v12.png";
+import phoneMockup from "@/assets/phone-mockup-v13.png";
 import PhoneMockup from "@/components/landing/PhoneMockup";
 
 const badges = [
@@ -42,8 +42,17 @@ const ProductPreview = () => {
             transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
             className="relative w-[280px] sm:w-[300px]"
           >
+            {/* Soft glow halo to blend the mockup into the page background */}
+            <div
+              aria-hidden
+              className="absolute inset-0 -z-10 blur-3xl opacity-60"
+              style={{
+                background:
+                  "radial-gradient(ellipse at center, hsla(22, 45%, 56%, 0.25) 0%, hsla(218, 46%, 85%, 0.2) 40%, transparent 70%)",
+              }}
+            />
             <motion.div whileHover={{ y: -8, rotate: 1 }} transition={{ type: "spring", stiffness: 200 }}>
-              <PhoneMockup phoneImage={phoneMockup} alt="Aperçu de l'application TaPlaceGo" widthClassName="w-full" />
+              <PhoneMockup phoneImage={phoneMockup} alt="Aperçu de l'application TaPlaceGo" widthClassName="w-full drop-shadow-[0_30px_50px_rgba(27,42,74,0.25)]" />
             </motion.div>
           </motion.div>
 
