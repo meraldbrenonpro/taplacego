@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Locate, Zap, Lock, Radio } from "lucide-react";
-import phoneMockup from "@/assets/phone-mockup-v10.png";
+import phoneMockup from "@/assets/phone-mockup-v11.png";
 import PhoneMockup from "@/components/landing/PhoneMockup";
 
 const badges = [
