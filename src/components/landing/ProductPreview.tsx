@@ -40,7 +40,7 @@ const ProductPreview = () => {
             whileInView={{ opacity: 1, y: 0, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
-            className="relative w-[200px] sm:w-[220px]"
+            className="relative w-[340px] sm:w-[400px]"
           >
             {/* Soft glow halo to blend the mockup into the page background */}
             <div
